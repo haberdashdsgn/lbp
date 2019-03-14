@@ -1,0 +1,14 @@
+.DS_Store
+.vscode
+*.pdf
+package-lock.json
+node_modules
+src_OLD
+src/docs
+src/img
+src/robots.txt
+src/ror.xml
+src/sitemap.html
+src/sitemap.xml
+src/urllist.txt
+/www

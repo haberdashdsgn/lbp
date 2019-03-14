@@ -1,0 +1,409 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import '_LBPmixins';
+@import '_LBPvariables';
+
+body {
+	font-family: $LBPsans;
+	font-size: 1rem;
+	color: $darkGray;
+	@include margin(0,auto,0,auto);
+	@include padding(0,0,0,0);
+
+	.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+		float: left;
+	}
+}
+
+#wrapper {
+	h1, h2, h3, h4, h5 {
+		color: $darkBlue;
+	}
+
+	a {
+		color: $rust;
+
+		&:hover {
+			text-decoration: none;
+			color: $darkBlue;
+		}
+	}
+
+	img {
+		width: 100%;
+		@include margin(0,auto,0,auto);
+		@include padding(0,0,0,0);
+	}
+
+	@for $i from 1 through 10 {
+		.spacer#{$i * 10} {
+			width: 100%;
+			height: $i * 10 + px;
+			float: none;
+			clear: both;
+		}
+	}
+
+	.btn-primary {
+		background-color: $rust;
+		border-color: $gold;
+		@include transition(0s,0.3s,all,ease);
+
+		&:hover {
+			background-color: $gold;
+			color: $rust;
+			opacity: 0.8;
+		}
+	}
+
+	.btn-secondary {
+		background-color: $purple;
+		border-color: $pink;
+		@include transition(0s,0.3s,all,ease);
+
+		&:hover {
+			background-color: $white;
+			color: $pink;
+			opacity: 0.8;
+		}
+	}
+
+	.btn-info {
+		background-color: $darkBlue;
+		border-color: $white;
+		@include transition(0s,0.3s,all,ease);
+
+		&:hover {
+			background-color: $white;
+			border-color: $darkBlue;
+			color: $darkBlue;
+			opacity: 0.8;
+		}
+	}
+
+	#navigation {
+		position: fixed;
+		width: 100%;
+		z-index: 1030;
+
+		a {
+			color: $lightBlue;
+			font-size: 1.05rem;
+			font-weight: 900;
+			@include padding(0,15px,0,15px);
+			@include transition(0s,0.2s,all,ease);
+
+			&:hover {
+				color: $gold;
+			}
+		}
+
+		.navbar {
+			@include box-shadow(0px 2px 7px rgba(0,0,0,0.5));
+
+			&.fixed-top {
+				background: $darkBlue;
+				border-bottom: 1px solid $pink;
+				padding-left: 10%;
+				padding-right: 10%;
+			}
+
+			&.scrolled {
+				height: 45px;
+
+				.navbar-brand {
+					img {
+						width: auto;
+						height: 40px;
+					}
+				}
+
+				a {
+					font-size: 0.9rem;
+				}
+
+				@media screen and (max-width: $break-small) {
+					height: auto;
+				}
+			}
+
+			.nav-item {
+				text-align: center;
+				@include padding(0,0,0,0);
+
+				@media screen and (max-width: $break-small) {
+					@include padding(10px,0,10px,0);
+				}
+			}
+
+			.navbar-brand {
+				img {
+					max-width: 150px;
+				}
+			}
+
+			.navbar-toggler-icon {
+				background-image: url("data:image/svg+xml,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>")
+			}
+		}
+	}
+
+	#hero {
+		@include margin(77px,auto,0,auto);
+		overflow: hidden;
+		
+		#heroSlider {
+			position: relative;
+			width: 1140px;
+			height: 400px;
+			@include margin(0,auto,0,auto);
+			visibility: hidden;
+			overflow: hidden;
+
+			.jumbotron {
+				background: rgba(214,244,255,0.85);
+				width: 50%;
+				@include margin(5%,auto,0,10%);
+				@include padding(2rem,2rem,2rem,2rem);
+
+				hr {
+					border-color: rgba(0,84,128,0.4);
+				}
+
+				@media screen and (max-width: $break-small) {
+					width: 60%;
+				}
+			}
+
+			.heroSlides {
+				position: absolute;
+				width: 1140px;
+				height: 442px;
+				left: 0px;
+				top: 0px;
+				overflow: hidden;
+
+				@media screen and (max-width: $break-small) {
+					height: 600px;
+				}
+			}
+
+			.arrowLeft {
+				position: absolute;
+				width: 55px;
+				height: 55px;
+				top: 0px;
+				left: 25px;
+			}
+
+			.arrowRight {
+				position: absolute;
+				width: 55px;
+				height: 55px;
+				top: 0px;
+				right: 25px;
+			}
+
+			.arrow {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				cursor: pointer;
+
+				.chevron {
+					fill: $lightBlue;
+				}
+			}
+
+			.navDots{
+				position: absolute;
+				width: 100px;
+				height: 16px;
+				bottom: 16px;
+				right: 12px;
+
+				.dotContainer {
+					position: absolute;
+					cursor: pointer;
+					width: 20px;
+					height: 20px;
+
+					.dot {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+
+						.circle {
+							fill: $white;
+							stroke: $lightBlue;
+							fill-opacity: 1;
+						}
+					}
+				}
+			}
+			
+			@media screen and (max-width: $break-small) {
+				height: 500px;
+			}
+		}
+
+		@media screen and (max-width: $break-small) {
+			margin-top: 90px;
+		}
+	}
+
+	#linkBlocks {
+		@include padding(35px,0,35px,0);
+	}
+
+	#content {
+		@include margin(110px,auto,40px,auto);
+
+		#sidebar {
+			@include margin(0,auto,0,auto);
+			@include padding(0,0,0,0);
+
+			.panel {
+				background: $sand;
+				@include padding(15px,15px,10px,15px);
+				@include border-radius(10px,10px,10px,10px);
+
+				@media screen and (max-width: $break-small) {
+					@include margin(20px,auto,0,auto);
+				}	
+			}
+		}
+
+		.directory, .listings {
+			width: 100%;
+			@include padding(5px,5px,5px,5px);
+
+			tr {
+				 
+				th {
+					background: $darkBlue;
+					color: $white;
+					@include padding(5px,5px,5px,5px);
+				}
+
+				td {
+					@include padding(5px,5px,5px,5px);
+				}
+
+				&:nth-child(even) {
+					background: $lightBlue;
+				}
+
+				&:nth-child(odd) {
+					background: $paleBlue;
+				}
+			}
+		}
+
+		&.map {
+			margin-top: 88px;
+		}
+	}
+
+	#contact {
+		background: $paleBlue;
+		@include padding(40px,0,40px,0);
+
+		h1 {
+			color: $purple;
+		}
+
+		h4 {
+			color: $darkGray;
+			margin-bottom: 20px;
+		}
+
+		.icon {
+			color: $pink;
+			font-size: 45px;
+			text-align: center;
+			@include margin(0,auto,0,auto);
+		}
+	}
+
+	#map {
+		@include margin(0,auto,0,auto);
+
+		.map {
+			height: 350px;
+			@include margin(0,auto,0,auto);
+			@include padding(0,0,0,0);
+
+			.mapDisplay {
+				background: $lilac;
+				width: 100px;
+				height: 50px;
+				font-weight: bold;
+				text-align: center;
+				@include margin(-10px,auto,0,auto);
+				@include border-radius(50px,50px,50px,50px);
+				opacity: 0.8;
+
+				p {
+					@include padding(11px,0,0,0);
+					color: $white;
+				}
+
+				.mapIcon {
+					color: $darkBlue;
+					font-size: 30px;
+					@include margin(-13px,auto,0,auto);
+				}
+			}
+		}
+	}
+
+	#footer {
+		background: $darkBrown;
+		border-top: 4px solid $pink;
+		@include margin(0,auto,0,auto);
+		@include padding(30px,0,30px,0);
+
+		p {
+			color: $white;
+			font-size: 0.8rem;
+			text-align: left;
+			@include margin(0,auto,0,auto);
+			@include padding(0,0,5px,0);
+
+			@media screen and (max-width: $break-small) {
+				font-size: 0.7rem;
+				text-align: center;
+			}
+		}
+
+		a {
+			color: $lightBlue;
+
+			&:hover {
+				color: $gold;
+			}
+		}
+
+		.socialIcons {
+			text-align: right;
+			
+			.social-icon {
+				@include transition(0s,0.3s,all,ease);
+
+				&:hover {
+					opacity: 0.5;
+				}
+			}
+
+			@media screen and (max-width: $break-small) {
+				text-align: center;
+			}
+		}
+	}
+}
